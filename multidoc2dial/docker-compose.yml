@@ -1,0 +1,11 @@
+services:
+  check:
+    build: .
+    image: rag-system-check
+    volumes:
+      - huggingface:/cache/huggingface
+      - ./data/snapshots:/app/data/snapshots
+      - ./data/index:/app/data/index
+
+volumes:
+  huggingface:

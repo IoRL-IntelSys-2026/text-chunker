@@ -1,0 +1,19 @@
+# Нарезка учебного снимка по разделам из structure/.
+# Лимит записан явно: без него длина фрагмента ничем не ограничена.
+strategy: md_header
+embedding_model: BAAI/bge-m3
+tokenizer: BAAI/bge-m3
+max_tokens: 512
+overlap_tokens: 64
+min_tokens: 24
+chunker: mdd-sections+recursive/v1/512/64
+embed_text: "{breadcrumbs}\n{title}\n{headings}\n\n{text}"
+limits:
+  max_html_bytes: 2000000
+  max_file_bytes: 20000000
+  max_pages: 100
+docling:
+  infer_furniture: false
+  fetch_images: false
+  image_placeholder: ""
+  document_timeout_s: 90

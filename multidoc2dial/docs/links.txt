@@ -1,0 +1,2 @@
+https://doc2dial.github.io/multidoc2dial/file/multidoc2dial.zip — официальный архив multidoc2dial: 488 учебных документов, читается из zip без распаковки
+https://github.com/Daniilboda/RAG-SYSTEM-TEAM2 — публичный репозиторий команды 2: общее хранилище файлов команды, пока отдельного диска проекта нет
