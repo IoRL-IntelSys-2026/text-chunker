@@ -1,15 +1,13 @@
-"""Прогон до записи в базу: снимок, нарезка, векторы, затем pytest.
+"""Сборка проекта до записи в базу: снимок, нарезка, векторы.
 
 Архив читается из data/cache/multidoc2dial.zip и на диск не распаковывается.
-В Qdrant этот скрипт не пишет. Поиск retrieve.py не запускается.
+Pytest этот скрипт не запускает. В Qdrant он не пишет. Поиск retrieve.py не запускается.
 """
 
 from __future__ import annotations
 
 import sys
 from pathlib import Path
-
-import pytest
 
 from preprocessing.embed_chunks import write_vectors
 from preprocessing.write_chunks import write_chunks
@@ -32,17 +30,7 @@ def main() -> int:
     print("Считаю векторы bge-m3. При первом запуске модель скачивается", flush=True)
     vector_count = write_vectors(CHUNKS, VECTORS)
     print(f"Векторов: {vector_count}", flush=True)
-    print("Запускаю проверки", flush=True)
-    return pytest.main(
-        [
-            "tests/snapshot",
-            "tests/chunking",
-            "tests/vectors",
-            "tests/upload",
-            "tests/answer",
-            "-q",
-        ]
-    )
+    return 0
 
 
 if __name__ == "__main__":

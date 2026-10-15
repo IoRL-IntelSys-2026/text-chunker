@@ -8,11 +8,11 @@
 .env             адрес и ключ кластера Qdrant; в git не кладётся
 README.md        описание для GitHub: снимок, нарезка, векторы, Qdrant и поиск
 pytest.ini       запуск проверок через pytest; метка slow у долгих тестов с bge-m3 или всем снимком
-Dockerfile        образ проверки: Python, библиотеки, сборка снимка и pytest внутри
-docker-compose.yml   одна команда снаружи: docker compose run --rm --build check
+Dockerfile        образ: Python и библиотеки; по умолчанию собирает снимок, нарезку и векторы
+docker-compose.yml   команда сборки: docker compose run --rm --build build
 .dockerignore     в образ не попадают .env, готовый снимок и нарезка
 requirements.txt  библиотеки образа: pytest, bge-m3 и клиент Qdrant без живой базы
-docker/run_checks.py   внутри контейнера до записи в базу: снимок из архива, нарезка, векторы, затем pytest
+docker/build_project.py   сборка до записи в базу: снимок из архива, нарезка, векторы
 upload_db.py     запись готовых фрагментов в Qdrant; запускать только если в .env есть адрес и ключ
 retrieve.py      поиск по строке запроса и печать ответа модели в консоль
 answer.py        ответ по найденным фрагментам на видеокарте: локальная модель Qwen2.5-0.5B-Instruct
