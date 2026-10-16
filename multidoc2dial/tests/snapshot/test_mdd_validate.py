@@ -10,8 +10,8 @@ from pathlib import Path
 
 import pytest
 
-from rag_common.mdd.build import build_snapshot
-from rag_common.mdd.validate import validate_snapshot
+from preprocessing.adapters.mdd import build_snapshot
+from rag_common.datasets.mdd.validate import validate_snapshot
 
 pytestmark = pytest.mark.slow
 

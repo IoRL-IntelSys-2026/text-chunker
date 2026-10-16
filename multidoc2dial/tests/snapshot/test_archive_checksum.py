@@ -10,8 +10,8 @@ from pathlib import Path
 
 import pytest
 
-from rag_common.mdd.documents import iter_documents
-from rag_common.mdd.mdd import (
+from rag_common.datasets.mdd.documents import iter_documents
+from rag_common.datasets.mdd.mdd import (
     ARCHIVE_SHA256,
     ArchiveHashMismatch,
     file_sha256,

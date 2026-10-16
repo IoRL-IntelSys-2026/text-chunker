@@ -7,8 +7,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from rag_common.mdd.documents import iter_documents
-from rag_common.mdd.ids import k1_doc_id, k1_url, make_doc_id
+from rag_common.datasets.mdd.documents import iter_documents
+from rag_common.datasets.mdd.ids import k1_doc_id, k1_url, make_doc_id
 
 ROOT = Path(__file__).resolve().parents[2]
 ARCHIVE = ROOT / "data" / "cache" / "multidoc2dial.zip"

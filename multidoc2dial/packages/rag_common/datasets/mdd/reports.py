@@ -9,8 +9,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from rag_common.mdd.documents import iter_documents
-from rag_common.mdd.ids import k1_doc_id
+from rag_common.datasets.mdd.documents import iter_documents
+from rag_common.datasets.mdd.ids import k1_doc_id
 
 SECTION_ORDER = ("dmv", "ssa", "va", "studentaid")
 SECTION_DESCRIPTIONS = {

@@ -5,9 +5,9 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from rag_common.mdd.manifest import FETCHED_AT
-from rag_common.mdd.mdd import ARCHIVE_SHA256
-from rag_common.mdd.snapshot_info import ADAPTER_VERSION, write_snapshot_info
+from rag_common.datasets.mdd.manifest import FETCHED_AT
+from rag_common.datasets.mdd.mdd import ARCHIVE_SHA256
+from rag_common.datasets.mdd.snapshot_info import ADAPTER_VERSION, write_snapshot_info
 
 ROOT = Path(__file__).resolve().parents[2]
 ARCHIVE = ROOT / "data" / "cache" / "multidoc2dial.zip"

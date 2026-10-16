@@ -11,7 +11,7 @@ from datetime import datetime
 from pathlib import Path
 from uuid import NAMESPACE_URL, uuid5
 
-from rag_common.mdd.mdd import ARCHIVE_SHA256
+from rag_common.datasets.mdd.mdd import ARCHIVE_SHA256
 from rag_common.text import normalized_hash
 
 REQUIRED_ROW = (

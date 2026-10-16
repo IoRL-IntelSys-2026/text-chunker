@@ -8,7 +8,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from rag_common.mdd.reports import write_reports
+from rag_common.datasets.mdd.reports import write_reports
 
 ROOT = Path(__file__).resolve().parents[2]
 ARCHIVE = ROOT / "data" / "cache" / "multidoc2dial.zip"

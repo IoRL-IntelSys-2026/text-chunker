@@ -8,9 +8,9 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from rag_common.mdd.documents import iter_documents
-from rag_common.mdd.manifest import FETCHED_AT
-from rag_common.mdd.mdd import ARCHIVE_SHA256, file_sha256
+from rag_common.datasets.mdd.documents import iter_documents
+from rag_common.datasets.mdd.manifest import FETCHED_AT
+from rag_common.datasets.mdd.mdd import ARCHIVE_SHA256, file_sha256
 
 ADAPTER_VERSION = "1"
 

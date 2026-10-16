@@ -6,14 +6,15 @@
 .git/            локальная история Git и связь с GitHub
 .gitignore       снимок data/snapshots/ и файл .env не попадают в репозиторий
 .env             адрес и ключ кластера Qdrant; в git не кладётся
-README.md        описание для GitHub: снимок, нарезка, векторы, Qdrant и поиск
+README.md        описание для GitHub: снимок, ingest, quality, нарезка, векторы, Qdrant и поиск
 pytest.ini       запуск проверок через pytest; метка slow у долгих тестов с bge-m3 или всем снимком
 Dockerfile        образ: Python и библиотеки; по умолчанию собирает снимок, нарезку и векторы
 docker-compose.yml   команда сборки: docker compose run --rm --build build
 .dockerignore     в образ не попадают .env, готовый снимок и нарезка
-requirements.txt  библиотеки образа: pytest, bge-m3 и клиент Qdrant без живой базы
+requirements.txt  библиотеки образа: pytest, bge-m3, typer и клиент Qdrant
 docker/build_project.py   сборка до записи в базу: снимок из архива, нарезка, векторы
-upload_db.py     запись готовых фрагментов в Qdrant; запускать только если в .env есть адрес и ключ
+upload_db.py     запись готовых фрагментов в Qdrant; предпочтительно python ingest.py index
+ingest.py        точка входа CLI ingest: adapt-mdd, chunk, embed, index, all, alias, snapshot
 retrieve.py      поиск по строке запроса и печать ответа модели в консоль
 answer.py        ответ по найденным фрагментам на видеокарте: локальная модель Qwen2.5-0.5B-Instruct
 configs/chunking/mdd_sections_512.yaml   лимит 512, перекрытие 64, минимум 24 и имя нарезки по разделам
@@ -21,20 +22,34 @@ packages/        общие функции: их потом берут ретр�
   rag_common/text.py   хеш текста для описи: файл документа при этом не меняется
   rag_common/ids.py   chunk_id: uuid5 от номера документа, имени нарезки и порядкового номера
   rag_common/embeddings.py   модель bge-m3: один проход даёт плотный вектор на 1024 числа и разреженный вектор слов
-  rag_common/mdd/   код учебного архива multidoc2dial
-    __init__.py   помечает папку mdd как пакет Python
-    mdd.py   контрольная сумма архива и копия в кэш
-    documents.py   чтение 488 документов из zip в памяти, без распаковки
-    ids.py   адрес mdd:// и наш doc_id, исходный номер хранится отдельно
-    pages.py   запись doc_text в pages/<doc_id>.txt без изменения текста
-    structure.py   разделы документа в structure/<doc_id>.json: путь заголовков и границы в тексте
-    manifest.py   опись manifest.jsonl: адрес, номер, заголовок и хеш, без правки txt
-    snapshot_info.py   паспорт снимка: версия, сумма архива и число документов
-    reports.py   отчёты снимка: четыре темы и нулевая статистика обхода сайта
-    validate.py   проверка снимка mdd_v1 по правилам K1
-    build.py   повторная сборка снимка из архива теми же файлами
+  rag_common/datasets/   загрузчики общих датасетов
+    __init__.py   помечает папку datasets как пакет Python
+    mdd/   загрузчик учебного архива multidoc2dial (путь rag_common.datasets.mdd)
+      __init__.py   публичный API: k1_url, k1_doc_id, iter_documents
+      mdd.py   контрольная сумма архива и копия в кэш
+      documents.py   чтение 488 документов из zip в памяти, без распаковки
+      ids.py   адрес mdd:// и наш doc_id, исходный номер хранится отдельно
+      pages.py   запись doc_text в pages/<doc_id>.txt без изменения текста
+      structure.py   разделы документа в structure/<doc_id>.json: путь заголовков и границы в тексте
+      manifest.py   опись manifest.jsonl: адрес, номер, заголовок и хеш, без правки txt
+      snapshot_info.py   паспорт снимка: версия, сумма архива и число документов
+      reports.py   отчёты снимка: четыре темы и нулевая статистика обхода сайта
+      validate.py   проверка снимка mdd_v1 по правилам K1
+      build.py   повторная сборка снимка из архива теми же файлами
 preprocessing/   программа нашей команды: раскладка документов, нарезка, запись в базу
   __init__.py   помечает папку preprocessing как пакет Python
+  adapters/   адаптеры снимков K1
+    __init__.py   помечает папку adapters как пакет Python
+    mdd.py   сборка снимка mdd_v1 из zip через rag_common.datasets.mdd
+  acceptance.py   приёмочная статистика K1: типы, языки, разделы, размеры, outlinks
+  chunkers/   стратегии нарезки
+    __init__.py   помечает папку chunkers как пакет Python
+    md_header.py   стратегия S2: chunk(doc) по разделам structure/ с проверкой среза
+  cli.py   команда ingest: adapt-mdd, chunk, embed, index, all, alias, snapshot
+  __main__.py   запуск python -m preprocessing …
+  README.md   как другим командам собрать коллекцию через ingest
+  index.py   запись в Qdrant: коллекция, upsert, алиас и снапшот коллекции
+  quality.py   отчёт quality_report.md, dup_ratio и локальные ворота K2
   chunking_config.py   чтение конфига нарезки: без лимита max_tokens файл не принимается
   token_count.py   длина текста в токенах bge-m3: один и тот же текст даёт одно и то же число
   chunk_document.py   документ для нарезки: текст из pages/, разделы из structure/, заголовок из описи
@@ -43,7 +58,7 @@ preprocessing/   программа нашей команды: раскладк�
   small_pieces.py   мелкие куски: заголовок склеивается со следующим, короче 24 токенов склеивается или отбрасывается
   fragment_card.py   карточка фрагмента: text — кусок документа, embed_text — заголовок и кусок для поиска
   number_fragments.py   номера фрагментов внутри документа с 0 без пропусков, chunk_id стабилен при повторе
-  write_chunks.py   запись фрагментов в chunks.jsonl: одна строка на кусок, без векторов
+  write_chunks.py   запись фрагментов в chunks.jsonl через chunkers.md_header, без векторов
   embed_limit.py   кусок ужимается, пока заголовок и текст вместе не длиннее 512 токенов
   check_chunks.py   проверка нарезки: срез совпадает с text, пустых нет, повтор даёт тот же файл
   embed_chunks.py   векторы embed_text пачками: одна строка vectors.jsonl на строку chunks.jsonl
@@ -61,6 +76,7 @@ data/            файлы, не код: архив, документы, нар
   index/mdd_chunks_v1/chunks.jsonl   фрагменты нарезки: ссылка на документ и границы в тексте, без векторов; в git не кладётся
   index/mdd_chunks_v1/vectors.jsonl   плотный и разреженный вектор на каждый фрагмент, в том же порядке; в git не кладётся
   index/mdd_chunks_v1/index_info.json   паспорт коллекции: снимок, нарезка, модель и числа; в git не кладётся
+  index/mdd_chunks_v1/quality_report.md   отчёт о качестве и ворота K2; в git не кладётся
 docs/            заметки этапа
   mdd_v1_steps.xlsx   четыре листа: шаги снимка mdd_v1, нарезка по разделам, эмбеддинги и загрузка в Qdrant
   mdd_v1_explained.md   простым языком: что сделали со снимком, зачем и что это даёт дальше
@@ -69,6 +85,9 @@ docs/            заметки этапа
   rag_mindmap.xmind   карта XMind: снимок, нарезка, векторы, Qdrant, поиск и ответ
   links.txt           ссылки проекта: адрес и рядом, что это за ссылка
   hidden-folders.md   какие служебные папки скрыты в Cursor и зачем они на диске
+  specs/pre/templates/quality_report.md   шаблон-пояснение полей отчёта о качестве
+  specs/pre/templates/bug_prs.md   шаблон баг-репорта команде 1 по повторяющимся чанкам
+  specs/pre/templates/acceptance.md   шаблон-пояснение полей приёмки снимка K1
 tests/            проверки pytest по категориям; долгие помечены slow
   snapshot/   снимок mdd_v1: архив, страницы, разделы, опись, паспорт и отчёты
     test_archive_checksum.py   сумма архива и числа документов по четырём темам
@@ -79,6 +98,7 @@ tests/            проверки pytest по категориям; долги�
     test_snapshot_passport.py   в паспорте 488 документов и сумма архива из шага 2
     test_mdd_reports.py   в sections.json числа 149, 109, 138 и 92, обход сайта нулевой
     test_mdd_validate.py   долго: читает весь готовый снимок и собирает его второй раз
+    test_acceptance.py   приёмочная статистика K1 на мини-снимке и на mdd_v1
   chunking/   нарезка по разделам
     test_chunking_config.py   в конфиге 512, 64, 24 и имя способа; без лимита файл отвергается
     test_token_count.py   долго: грузит токенизатор BAAI/bge-m3
@@ -90,6 +110,7 @@ tests/            проверки pytest по категориям; долги�
     test_chunk_ids.py   номера фрагментов с 0 без пропусков, повтор даёт те же chunk_id
     test_write_chunks.py   долго: весь снимок и токены bge-m3 по всем фрагментам
     test_check_chunks.py   долго: весь снимок, нарезка и токены bge-m3
+    test_quality_report.py   dup_ratio и отказ ворот K2 на коротких синтетических чанках
   vectors/   векторы bge-m3
     test_embeddings.py   подставная модель быстрая; один тест долго грузит настоящую BAAI/bge-m3
     test_embed_chunks.py   векторы идут пачками, число строк равно числу фрагментов
@@ -97,6 +118,7 @@ tests/            проверки pytest по категориям; долги�
   upload/   запись в базу на подставном клиенте, без живого Qdrant
     test_upload_chunks.py   номер точки равен chunk_id, загрузка пачками, повтор шлёт те же номера
     test_collection_passport.py   паспорт пишется, когда число точек равно числу строк, иначе файл не создаётся
+    test_cli_ingest.py   справка ingest, adapt-mdd на архиве и алиас на подставном клиенте
   answer/   ответ на подставной модели
     test_answer.py   модель получает текст фрагмента и вопрос и возвращает свой ответ
   test_retrieve.py   поиск по двум векторам на подставном клиенте; этот файл не переносился

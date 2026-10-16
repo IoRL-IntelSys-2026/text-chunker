@@ -7,11 +7,11 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from rag_common.mdd.manifest import write_manifest
-from rag_common.mdd.pages import write_pages
-from rag_common.mdd.reports import write_reports
-from rag_common.mdd.snapshot_info import write_snapshot_info
-from rag_common.mdd.structure import write_structure
+from rag_common.datasets.mdd.manifest import write_manifest
+from rag_common.datasets.mdd.pages import write_pages
+from rag_common.datasets.mdd.reports import write_reports
+from rag_common.datasets.mdd.snapshot_info import write_snapshot_info
+from rag_common.datasets.mdd.structure import write_structure
 
 
 def build_snapshot(archive: Path, snapshot_dir: Path) -> None:

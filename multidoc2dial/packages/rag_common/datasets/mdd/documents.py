@@ -10,7 +10,7 @@ import zipfile
 from dataclasses import dataclass
 from pathlib import Path
 
-from rag_common.mdd.mdd import _require_archive_hash
+from rag_common.datasets.mdd.mdd import _require_archive_hash
 
 DOCUMENTS_MEMBER = "multidoc2dial/multidoc2dial_doc.json"
 

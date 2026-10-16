@@ -8,9 +8,9 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from rag_common.mdd.documents import iter_documents
-from rag_common.mdd.ids import k1_doc_id, k1_url
-from rag_common.mdd.manifest import FETCHED_AT, write_manifest
+from rag_common.datasets.mdd.documents import iter_documents
+from rag_common.datasets.mdd.ids import k1_doc_id, k1_url
+from rag_common.datasets.mdd.manifest import FETCHED_AT, write_manifest
 from rag_common.text import normalized_hash
 
 ROOT = Path(__file__).resolve().parents[2]

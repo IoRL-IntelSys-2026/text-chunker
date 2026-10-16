@@ -8,8 +8,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from rag_common.mdd.documents import MddDocument, iter_documents
-from rag_common.mdd.ids import k1_doc_id, k1_url
+from rag_common.datasets.mdd.documents import MddDocument, iter_documents
+from rag_common.datasets.mdd.ids import k1_doc_id, k1_url
 from rag_common.text import normalized_hash
 
 # День сборки описи. Час фиксирован, чтобы повторный запуск в тот же день дал тот же файл.

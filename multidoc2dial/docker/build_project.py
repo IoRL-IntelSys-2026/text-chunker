@@ -9,9 +9,9 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
+from preprocessing.adapters.mdd import build_snapshot
 from preprocessing.embed_chunks import write_vectors
 from preprocessing.write_chunks import write_chunks
-from rag_common.mdd.build import build_snapshot
 
 ROOT = Path(__file__).resolve().parents[1]
 ARCHIVE = ROOT / "data" / "cache" / "multidoc2dial.zip"

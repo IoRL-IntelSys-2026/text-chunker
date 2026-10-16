@@ -11,12 +11,9 @@ import json
 from pathlib import Path
 
 from preprocessing.chunk_document import load_chunk_documents
+from preprocessing.chunkers.md_header import chunk
 from preprocessing.chunking_config import load_chunking_config
-from preprocessing.embed_limit import fit_embed_limit
-from preprocessing.fragment_card import fragment_card
-from preprocessing.long_sections import split_long_sections
 from preprocessing.number_fragments import number_fragments
-from preprocessing.small_pieces import drop_small_pieces
 from preprocessing.token_count import count_tokens
 
 
@@ -37,27 +34,14 @@ def write_chunks(snapshot_dir: Path, config_path: Path, chunks_path: Path) -> in
 
 
 def _document_rows(snapshot_dir: Path, document, manifest_row: dict, config: dict) -> list[dict]:
-    pieces, _notes = split_long_sections(
+    chunks = chunk(
         document,
         max_tokens=config["max_tokens"],
         overlap_tokens=config["overlap_tokens"],
-        tokenizer_name=config["tokenizer"],
-    )
-    kept, _report = drop_small_pieces(
-        document,
-        pieces,
         min_tokens=config["min_tokens"],
         tokenizer_name=config["tokenizer"],
     )
-    kept = fit_embed_limit(
-        document,
-        kept,
-        max_tokens=config["max_tokens"],
-        overlap_tokens=config["overlap_tokens"],
-        tokenizer_name=config["tokenizer"],
-    )
-    cards = [fragment_card(document, piece) for piece in kept]
-    numbered = number_fragments(cards, config["chunker"])
+    numbered = number_fragments([item.to_card() for item in chunks], config["chunker"])
     return [
         _fragment_row(snapshot_dir.name, manifest_row, item, config["tokenizer"], config["embedding_model"])
         for item in numbered
