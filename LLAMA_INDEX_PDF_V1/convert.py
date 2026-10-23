@@ -21,7 +21,7 @@ from llama_index.core import SimpleDirectoryReader
 # ================== НАСТРОЙКИ ==================
 INPUT_DIR = Path("docs/llama_index_pdf_files")   #где лежат исходные PDF
 OUTPUT_DIR = Path("LLAMA_INDEX_PDF_V1")          #должна лежать РЯДОМ с multidoc2dial
-MY_FILES = sorted(p.name for p in INPUT_DIR.glob("*.pdf"))[11:22]    
+MY_FILES = sorted(p.name for p in INPUT_DIR.glob("*.pdf")) [0:10]  #если пустой список — берём все PDF
 MIN_CHARS = 200      #если текста меньше — помечаем как подозрительный (возможно, скан)
 # ===============================================
 
@@ -50,12 +50,7 @@ READER_NAME = "SimpleDirectoryReader (PDFReader, pypdf)"
 MD_DIR.mkdir(parents=True, exist_ok=True)
 JSON_DIR.mkdir(parents=True, exist_ok=True)
 
-<<<<<<< HEAD
-# ---------python --version
-pip install llama-index-core llama-index-readers-file
-=======
 # ---------- 1. Читаем PDF ----------
->>>>>>> 5b8caca0ca93d32b321fa7a4bc6b564a13accf6b
 if MY_FILES:
     reader = SimpleDirectoryReader(input_files=[str(INPUT_DIR / f) for f in MY_FILES])
 else:
