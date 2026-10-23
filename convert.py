@@ -50,8 +50,12 @@ READER_NAME = "SimpleDirectoryReader (PDFReader, pypdf)"
 MD_DIR.mkdir(parents=True, exist_ok=True)
 JSON_DIR.mkdir(parents=True, exist_ok=True)
 
+<<<<<<< HEAD
 # ---------python --version
 pip install llama-index-core llama-index-readers-file
+=======
+# ---------- 1. Читаем PDF ----------
+>>>>>>> 5b8caca0ca93d32b321fa7a4bc6b564a13accf6b
 if MY_FILES:
     reader = SimpleDirectoryReader(input_files=[str(INPUT_DIR / f) for f in MY_FILES])
 else:
