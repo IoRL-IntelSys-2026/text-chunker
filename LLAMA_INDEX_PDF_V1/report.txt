@@ -1,8 +1,8 @@
 МИНИ-ОТЧЁТ: преобразование PDF через LlamaIndex
-Дата последнего запуска: 2026-10-23T16:14:48
+Дата последнего запуска: 2026-10-23T20:52:18
 
 === ВЕРСИИ ===
-python: 3.13.17
+python: 3.12.0
 llama-index-core: 0.14.25
 llama-index-readers-file: 0.7.0
 pypdf: 6.21.2
@@ -16,10 +16,21 @@ output_dir: LLAMA_INDEX_PDF_V1
 
 === СТАТИСТИКА ===
 PDF в наборе: 22
-Преобразовано (строк в jsonl): 11
-Ещё не преобразованы: 1356_about_support_measures.pdf, Alfa_Future_Scholarships_For_Students_Regulations_2026.pdf, Alfa_polozhenie_granty_studentam-v5.pdf, Grafik_vyplaty_stipendii.pdf, No1051-r_ot_03.07.2024_O_merax_podderghki_obuchayuschixsya_RUDN,_prinimayuschix_(prinimavshix)_uchastie_v._O.A._YAstrebov.pdf, No1424-r_ot_12.08.2026_Ob_ustanovlenii_normativo.pdf, No1843-r_ot_21.11.2024_O_materialynoi_podderghke_dlya_molodyx_studencheskix_semei_v_RUDN.pdf, No352_ot_18.06.2025_O_vvedenii_v_deistvie_izm._YU.N._Ebzeeva.pdf, No545_ot_24.10.2024_O_vnesenii_izmenenii_i_dopolnenii_v_prikaz_ot_26.03.2024_No_174_O_vvedenii._O.A._YAstrebov_(1).pdf, No595_ot_09.10.2025_O_vvedenii_v_deistvie_izm._D.I._Kutepov.pdf, No749-r_ot_13.05.2024_O_merax_podderghki_obuchayuschixsya,_proghivayuschix_v_raionax,_v_kotoryx_obyyavlen._O.A._YAstrebov.pdf
+Преобразовано (строк в jsonl): 22
+Ещё не преобразованы: нет
 
 === ПО ДОКУМЕНТАМ ===
+1356_about_support_measures.pdf: 9 стр., 14742 символов
+Alfa_Future_Scholarships_For_Students_Regulations_2026.pdf: 35 стр., 94793 символов
+Alfa_polozhenie_granty_studentam-v5.pdf: 40 стр., 109151 символов
+Grafik_vyplaty_stipendii.pdf: 1 стр., 228 символов
+No1051-r_ot_03.07.2024_O_merax_podderghki_obuchayuschixsya_RUDN,_prinimayuschix_(prinimavshix)_uchastie_v._O.A._YAstrebov.pdf: 3 стр., 4201 символов
+No1424-r_ot_12.08.2026_Ob_ustanovlenii_normativo.pdf: 3 стр., 5204 символов
+No1843-r_ot_21.11.2024_O_materialynoi_podderghke_dlya_molodyx_studencheskix_semei_v_RUDN.pdf: 3 стр., 3831 символов
+No352_ot_18.06.2025_O_vvedenii_v_deistvie_izm._YU.N._Ebzeeva.pdf: 2 стр., 2351 символов
+No545_ot_24.10.2024_O_vnesenii_izmenenii_i_dopolnenii_v_prikaz_ot_26.03.2024_No_174_O_vvedenii._O.A._YAstrebov_(1).pdf: 6 стр., 8372 символов
+No595_ot_09.10.2025_O_vvedenii_v_deistvie_izm._D.I._Kutepov.pdf: 2 стр., 2321 символов
+No749-r_ot_13.05.2024_O_merax_podderghki_obuchayuschixsya,_proghivayuschix_v_raionax,_v_kotoryx_obyyavlen._O.A._YAstrebov.pdf: 3 стр., 5326 символов
 No_368_ot_08.06.2022_Pologhenie_o_stipendialynom_obespechenii_i_drugix_formax_materialynoy_podderghki_obuchayuschixsya.pdf: 32 стр., 71103 символов
 Pologhenie_o_stipendialynyx_komissiyax_RUDN_888_(1).pdf: 5 стр., 228 символов
 О введение в действие Положения о предоставлении скидок и иных формах поддержки обучающихся РУДН в новой редакции.pdf: 23 стр., 54787 символов
@@ -36,12 +47,7 @@ Pologhenie_o_stipendialynyx_komissiyax_RUDN_888_(1).pdf: 5 стр., 228 симв
 Приказ Ректора «Об утверждении Положения о стипендии имени Владимира Францевича Станиса (Стипендия В.Ф. Станиса)».pdf: очень мало текста (0) — возможно, скан
 Регламент назначения социальной стипендии.pdf: очень мало текста (0) — возможно, скан
 
-Скрипт использует стандартный способ LlamaIndex (через библиотеку pypdf), который умеет только доставать готовый текст из PDF. 
-Читать текст с картинок он не умеет. Поэтому у сканов получилось 0 символов: страницы есть (3 и 6), а текста в них для программы нет.
-С помощью OCR (распознавания текста на картинках) это можно исправить. 
-В экосистеме LlamaIndex это делает LlamaParse, но для него нужен ключ LlamaCloud. 
-Есть и бесплатные локальные инструменты (например, Tesseract), но их сложнее установить.
-
-
-=== ЗАМЕЧЕННЫЕ ОШИБКИ И ПОТЕРИ ===
-В файле № 541_ot_29.09.2022.pdf электронная подпись, находящаяся слева сверху, оказалась в середине текста при конвертации из пдф.
+=== ЗАМЕЧЕННЫЕ ОШИБКИ И ПОТЕРИ (заполнить вручную) ===
+Grafik_vyplaty_stipendii.pdf, стр. 1 — основной текст документа не извлечён: отсутствуют заголовок «График выплаты стипендий» и абзац о сроках выплаты стипендий. В Markdown сохранены только сведения об электронной подписи. Потеря основного содержания подтверждена сравнением PDF и MD.
+1356_about_support_measures.pdf, стр. по всему документу нарушено разбиение текста на абзацы; заголовки не выделены и сливаются с основным текстом. Таблицы преобразованы в обычный текст, табличная структура не сохранена.
+Alfa_Future_Scholarships_For_Students_Regulations_2026.pdf, стр. по всему документу нарушено разбиение текста на абзацы; заголовки не выделены и сливаются с основным текстом. Таблицы преобразованы в обычный текст, табличная структура не сохранена.

@@ -1,0 +1,12 @@
+{
+  "doc_id": "Grafik_vyplaty_stipendii",
+  "file_name": "Grafik_vyplaty_stipendii.pdf",
+  "source_path": "docs/llama_index_pdf_files/Grafik_vyplaty_stipendii.pdf",
+  "num_pages": 1,
+  "num_chars": 228,
+  "tool": "llama_index",
+  "tool_version": "0.14.25",
+  "reader": "SimpleDirectoryReader (PDFReader, pypdf)",
+  "created_at": "2026-10-23T20:52:18",
+  "text": "Документ подписан простой электронной подписью\nИнформация о владельце:\nФИО: Ястребов Олег Александрович\nДолжность: Ректор\nДата подписания: 18.01.2022 17:31:51\nУникальный программный ключ:\nca953a0120d891083f939673078ef1a989dae18a"
+}

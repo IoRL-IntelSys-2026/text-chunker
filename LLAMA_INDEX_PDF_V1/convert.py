@@ -21,7 +21,7 @@ from llama_index.core import SimpleDirectoryReader
 # ================== НАСТРОЙКИ ==================
 INPUT_DIR = Path("docs/llama_index_pdf_files")   #где лежат исходные PDF
 OUTPUT_DIR = Path("LLAMA_INDEX_PDF_V1")          #должна лежать РЯДОМ с multidoc2dial
-MY_FILES = sorted(p.name for p in INPUT_DIR.glob("*.pdf")) [0:10]  #если пустой список — берём все PDF
+MY_FILES = sorted(p.name for p in INPUT_DIR.glob("*.pdf")) [0:11]  #если пустой список — берём все PDF
 MIN_CHARS = 200      #если текста меньше — помечаем как подозрительный (возможно, скан)
 # ===============================================
 
