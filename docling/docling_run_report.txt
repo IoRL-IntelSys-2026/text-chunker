@@ -1,0 +1,20 @@
+Docling run report — stipendii_10
+utc: 2026-10-22T14:22:06.177143+00:00
+docling_version: 2.141.0
+pipeline: PdfPipelineOptions(do_ocr=False, do_table_structure=True, table_structure_options=TableStructureOptions(do_cell_matching=True, mode=ACCURATE)); no VLM
+postprocess: docling/table_repair.py — merge page-split markdown tables, fold spilled cell glue, coalesce continuation rows, keep separate Группа N tables
+input: C:\Users\Daniil\Documents\CursorProjects\RAG SYSTEM\docs\docling_pdf_10
+output: C:\Users\Daniil\Documents\CursorProjects\RAG SYSTEM\docs\docling_md_10
+manifest: C:\Users\Daniil\Documents\CursorProjects\RAG SYSTEM\docling\docling.jsonl
+summary: ok=9 notes=1 errors=0 total=10
+
+OK doc_id=1 1356_about_support_measures.md: 14663 chars, pipe-ish lines~112
+OK doc_id=2 Alfa_Future_Scholarships_For_Students_Regulations_2026.md: 94711 chars, pipe-ish lines~232
+OK doc_id=3 Alfa_polozhenie_granty_studentam-v5.md: 108009 chars, pipe-ish lines~117
+NOTE doc_id=4 Grafik_vyplaty_stipendii.md: very short (30 chars)
+OK doc_id=5 No1051-r_ot_03.07.2024_O_merax_podderghki_obuchayuschixsya_RUDN,_prinimayuschix_(prinimavshix)_uchastie_v._O.A._YAstrebov.md: 3785 chars, pipe-ish lines~0
+OK doc_id=6 No1424-r_ot_12.08.2026_Ob_ustanovlenii_normativo.md: 4966 chars, pipe-ish lines~0
+OK doc_id=7 No1843-r_ot_21.11.2024_O_materialynoi_podderghke_dlya_molodyx_studencheskix_semei_v_RUDN.md: 2640 chars, pipe-ish lines~8
+OK doc_id=8 No352_ot_18.06.2025_O_vvedenii_v_deistvie_izm._YU.N._Ebzeeva.md: 1851 chars, pipe-ish lines~0
+OK doc_id=9 No545_ot_24.10.2024_O_vnesenii_izmenenii_i_dopolnenii_v_prikaz_ot_26.03.2024_No_174_O_vvedenii._O.A._YAstrebov_(1).md: 8063 chars, pipe-ish lines~21
+OK doc_id=10 No595_ot_09.10.2025_O_vvedenii_v_deistvie_izm._D.I._Kutepov.md: 2262 chars, pipe-ish lines~0

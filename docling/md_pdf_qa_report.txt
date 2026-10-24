@@ -1,0 +1,315 @@
+QA: PDF vs MD (full corpus from docling/docling.jsonl)
+pdf_dir=C:\Users\Daniil\Documents\CursorProjects\RAG SYSTEM\docs\docling_pdf
+md_dir=C:\Users\Daniil\Documents\CursorProjects\RAG SYSTEM\docs\docling_md
+
+## doc_id=1 [pilot_md_10] WARN — 1356_about_support_measures.md
+  pages=9 pdf_body=13946 md_chars=14663 imgs=6 tables~112 token_cov=0.99 num_cov=0.93
+  flags: IMAGE_PH=1, EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR, FLAT_UNIT_HEADERS=10, FLAT_LIST_TABLE_ROWS=96, TRUNCATED_POINT2_IN_SOURCE_OR_MD
+  missing_pdf_tokens: dgu3_rudn, приложение
+  signature_tail:
+    | 11. Проректору по организации приема Чесноковой Н.И., на основании приказов о зачислении с 1 сентября 2026 г. в состав студентов РУДН на мес
+    | 12. Руководителям ОУП организовать и обеспечить подготовку соответствующих приказов о назначении государственных академических стипендий до 
+    | 13. Контроль за исполнением приказа возложить на проректора по работе со студентами и начальника коммерческого управления.
+    | ## Ректор
+    | А.А. Сидорова (495) 787-38-03 доб.2930
+    | <!-- image -->
+    | ## О.А. Ястребов
+    | ## Перечень направлений подготовки и специальностей «Лиги стипендий»
+
+## doc_id=2 [pilot_md_10] NOTE — Alfa_Future_Scholarships_For_Students_Regulations_2026.md
+  pages=35 pdf_body=92321 md_chars=146016 imgs=1 tables~232 token_cov=0.99 num_cov=0.85
+  flags: MD_MUCH_LONGER
+  missing_pdf_tokens: _______________________, ________________________, _________________________, __________________________, __________________________________________________, ___________________________________________________________________________, ______________________________________________________________________________, _________________________________________________________________________________, alfa_chance, мажорных
+
+## doc_id=3 [pilot_md_10] NOTE — Alfa_polozhenie_granty_studentam-v5.md
+  pages=40 pdf_body=105864 md_chars=108009 imgs=1 tables~117 token_cov=0.99 num_cov=1.00
+  flags: IMAGE_PH=1
+  missing_pdf_tokens: _________________, _______________________, ________________________, _________________________, __________________________, _______________________________________________________________, _____________________________________________________________________, ___________________________________________________________________________, _________________________________________________________________________________, ___________________________________________________________________________________
+
+## doc_id=4 [pilot_md_10] NOTE — Grafik_vyplaty_stipendii.md
+  pages=1 pdf_body=54 md_chars=264 imgs=5 tables~0 token_cov=n/a(scan) num_cov=n/a
+  flags: SCAN_SOURCE_MANUAL_OR_OCR
+
+## doc_id=5 [pilot_md_10] WARN — No1051-r_ot_03.07.2024_O_merax_podderghki_obuchayuschixsya_RUDN,_prinimayuschix_(prinimavshix)_uchastie_v._O.A._YAstrebov.md
+  pages=3 pdf_body=3618 md_chars=3785 imgs=6 tables~0 token_cov=0.99 num_cov=1.00
+  flags: MANY_IMAGE_PH=4, EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR, EDS_STAMP_IN_TEXT
+  missing_pdf_tokens: dgu_rudn, ефремова
+  signature_tail:
+    | Обучающийся лично обращается к начальнику УРСО и предоставляет ему подтверждающие документы для рассмотрения.
+    | 2. Контроль за исполнением приказа возложить на проректора по работе со студентами М.И. Кацарского.
+    | ## Ректор
+    | <!-- image -->
+    | О.А. Ястребов
+    | <!-- image -->
+    | +7(495) 787-38-03, доб. 1309
+    | <!-- image -->
+
+## doc_id=6 [pilot_md_10] WARN — No1424-r_ot_12.08.2026_Ob_ustanovlenii_normativo.md
+  pages=3 pdf_body=4768 md_chars=4966 imgs=3 tables~0 token_cov=0.99 num_cov=1.00
+  flags: IMAGE_PH=1, EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR, EDS_STAMP_IN_TEXT
+  missing_pdf_tokens: dgu3_rudn
+  signature_tail:
+    | - стипендии иностранным гражданам - слушателям ИРЯ (подготовительного факультета), обучающимся за счет бюджетных ассигнований федерального б
+    | - государственная академическая стипендия студентам, обучающимся по образовательным программам: среднего профессионального образования (прог
+    | - государственная социальная стипендия студентам, обучающимся по образовательным программам: среднего профессионального образования (програм
+    | 2. Контроль за исполнением приказа возложить на проректора по работе со студентами М.И. Кацарского и главного бухгалтера А.В. Зорина.
+    | ## Ректор
+    | И.В. Ефремова +7(495) 787-38-03, доб. 1189
+    | <!-- image -->
+    | О.А. Ястребов
+
+## doc_id=7 [pilot_md_10] WARN — No1843-r_ot_21.11.2024_O_materialynoi_podderghke_dlya_molodyx_studencheskix_semei_v_RUDN.md
+  pages=3 pdf_body=3202 md_chars=2640 imgs=4 tables~8 token_cov=0.73 num_cov=0.71
+  flags: MANY_IMAGE_PH=5, EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR, MISSING_FOOTNOTE_HINT
+  missing_pdf_tokens: dgu_rudn, автономное, взаимодействию, воспитывающие, государственное, заключенном, законодательством, кацарский, неполной, нескольких
+  signature_tail:
+    | <!-- image -->
+    | <!-- image -->
+    | ## 2. Контроль за исполнением приказа оставляю за собой.
+    | И.о. Проректора
+    | И.В. Ефремова +7(495) 787-38-03, доб. 1309
+    | <!-- image -->
+    | М.Ю. Никитина
+    | <!-- image -->
+
+## doc_id=8 [pilot_md_10] CRITICAL — No352_ot_18.06.2025_O_vvedenii_v_deistvie_izm._YU.N._Ebzeeva.md
+  pages=2 pdf_body=2105 md_chars=1851 imgs=2 tables~0 token_cov=0.85 num_cov=0.75
+  flags: IMAGE_PH=2, FORMULA_NOT_DECODED, EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR
+  missing_pdf_tokens: dgu3_rudn, автономное, государственное, николаевна, образования, образовательное, образовательной, проректор, российский, университет
+  signature_tail:
+    | 1. Ввести в действие следующее изменение в Положение о стипендиальном обеспечении и других формах материальной поддержки обучающихся Российс
+    | - 1.1. пункт 7.2. изложить в следующей редакции:
+    | 3. «7.2. Стипендии в рамках текущих проектов РУДН (далее - проектные стипендии) назначаются обучающимся РУДН в качестве мер поддержки за сче
+    | Перечень планируемых на очередной календарный год проектных стипендий РУДН с указанием соответствующих локальных нормативных актов, устанавл
+    | И.о. Ректора
+    | Е.В. Казакова +7(495) 955-08-47, доб. 3847
+    | <!-- image -->
+    | Ю.Н. Эбзеева
+
+## doc_id=9 [pilot_md_10] WARN — No545_ot_24.10.2024_O_vnesenii_izmenenii_i_dopolnenii_v_prikaz_ot_26.03.2024_No_174_O_vvedenii._O.A._YAstrebov_(1).md
+  pages=6 pdf_body=7827 md_chars=8063 imgs=1 tables~21 token_cov=0.99 num_cov=1.00
+  flags: IMAGE_PH=1, EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR, EDS_STAMP_IN_TEXT
+  missing_pdf_tokens: документа, электронная
+  signature_tail:
+    | Размер материальной поддержки зависит от объема денежных средств, предназначенных для выплаты материальной поддержки, количества заявлений, 
+    | Ректор
+    | И.В. Ефремова +7(495) 787-38-03, доб. 1309
+    | <!-- image -->
+    | О.А. Ястребов
+    | Приложение № 1 к приказу от 24 октября 2024 г. № 545
+    | Приложение №4 к Порядку оказания материальной поддержки обучающимся РУДН
+    | ## Размеры материальной поддержки нуждающимся обучающимся за счет ассигнований федерального бюджета
+
+## doc_id=10 [pilot_md_10] WARN — No595_ot_09.10.2025_O_vvedenii_v_deistvie_izm._D.I._Kutepov.md
+  pages=2 pdf_body=2105 md_chars=2262 imgs=2 tables~0 token_cov=0.98 num_cov=1.00
+  flags: IMAGE_PH=1, EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR, EDS_STAMP_IN_TEXT, MISSING_SIGNER_NAME
+  missing_pdf_tokens: dgu3_rudn
+  signature_tail:
+    | - пункт 9.3. исключить.
+    | ## ПРИКАЗ
+    | Москва
+    | № 595
+    | 2. Контроль за исполнением приказа возложить на проректора по работе со студентами М.И. Кацарского.
+    | И.о. Ректора
+    | И.В. Ефремова +7(495) 787-38-03, доб. 1189
+    | <!-- image -->
+
+## doc_id=11 [roma_docling_pdf_v1] WARN — No749-r_ot_13.05.2024_O_merax_podderghki_obuchayuschixsya,_proghivayuschix_v_raionax,_v_kotoryx_obyyavlen._O.A._YAstrebov.md
+  pages=3 pdf_body=4726 md_chars=5376 imgs=4 tables~26 token_cov=0.98 num_cov=1.00
+  flags: EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR, EDS_STAMP_IN_TEXT
+  missing_pdf_tokens: воспитательной, коммунальные, приемную
+  signature_tail:
+    | 2.1. материальной помощи и (или) финансовой помощи в связи с утратой гражданами имущества первой необходимости за частично утраченное имущес
+    | 2.2. единовременного пособия гражданами, получившими в результате чрезвычайной ситуации вред здоровью, с учётом степени тяжести вреда здоров
+    | 2.3. иные подтверждающие документы.
+    | 3. Контроль за исполнением приказа возложить на проректора по работе со студентами.
+    | Ректор О.А. Ястребов
+    | И.В. Ефремова +7(495) 787-38-03, доб. 1309
+    | ## Действительный документ ref=963db883038b6c5511ef01652ca4534c
+    | ## Документ хранится в программе СЭД РУДН DGU_RUDN 13.05.2024
+
+## doc_id=12 [roma_docling_pdf_v1] WARN — No_368_ot_08.06.2022_Pologhenie_o_stipendialynom_obespechenii_i_drugix_formax_materialynoy_podderghki_obuchayuschixsya.md
+  pages=32 pdf_body=68797 md_chars=70520 imgs=5 tables~117 token_cov=1.00 num_cov=1.00
+  flags: EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR, EDS_STAMP_IN_TEXT, FLAT_LIST_TABLE_ROWS=87
+  missing_pdf_tokens: достижения1, жительства2, методическом, родителя1, финансовым
+  signature_tail:
+    | 2 Единой формы справки, которая может быть выдана студенту для назначения государственной социальной стипендии, нормативными правовыми актам
+    | – наименование государственного органа, выдавшего документ;
+    | – дата выдачи документа;
+    | – ФИО обучающегося;
+    | – основание назначения государственной социальной помощи;
+    | – дата назначения государственной социальной помощи;
+    | – печать, подпись уполномоченного лица. Документом, дающим основание для назначения государственной социальной стипендии, также может являть
+    | ## Электронная версия документа
+
+## doc_id=13 [roma_docling_pdf_v1] WARN — Pologhenie_o_stipendialynyx_komissiyax_RUDN_888_(1).md
+  pages=5 pdf_body=54 md_chars=8342 imgs=5 tables~0 token_cov=n/a(scan) num_cov=n/a
+  flags: SIGNATURE_PHONE_NEAR_RECTOR, EDS_STAMP_IN_TEXT, SCAN_SOURCE_MANUAL_OR_OCR
+  signature_tail:
+    | 4.4. Заседания стипендиальных комиссий оформляются протоколами. Протоколы ведутся ответственными секретарями и подписываются председателем с
+    | 4.5. Оформленные протоколы заседаний стипендиальных комиссий представляются проректору по работе со студентами вместе с проектами приказов о
+    | ## 5. Ответственность и полномочия
+    | 5.1. Ответственность за расходование стипендиального фонда в целом по РУДН несёт председатель стипендиальной комиссии РУДН.
+    | 5.2. Ответственность за распределение стипендиального фонда в целом по РУДН несёт заместитель председателя стипендиальной комиссии РУДН (нач
+    | 5.3. Ответственность за распределение (представление на назначение стипендиальных выплат и иных форм материальной поддержки) стипендиального
+    | 5.4. Общее руководство процессом стипендиального обеспечения и других форм материальной поддержки обучающихся РУДН осуществляет проректор по
+    | Проректор А.Д. Гладуш
+
+## doc_id=14 [roma_docling_pdf_v1] WARN — О введение в действие Положения о предоставлении скидок и иных формах поддержки обучающихся РУДН в новой редакции.md
+  pages=23 pdf_body=53468 md_chars=53888 imgs=1 tables~7 token_cov=1.00 num_cov=1.00
+  flags: EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR
+  missing_pdf_tokens: оздоровительного, физкультурно
+  signature_tail:
+    | ## об отсрочке платежа или рассрочке платежа
+    | Прошу предоставить мне:
+    | отсрочку платежа по договору до «___» ___________ 20 __ г. и/или
+    | рассрочку оплаты по договору от ______ № ________ следующим образом: ________________________ ______________________________________________
+    | В настоящее время обучаюсь по договору об оказании платных образовательных услуг от «___» ____________ 20__ г. № ______________ Прилагаемые 
+    | ## __________________________
+    | «____» __________________ 20___ г. (подпись заявителя) (дата написания)
+    | ## Электронная версия документа
+
+## doc_id=15 [roma_docling_pdf_v1] WARN — О введении в действие Порядка оказания материальной поддержки обучающимся РУДН.md
+  pages=12 pdf_body=23300 md_chars=25251 imgs=13 tables~121 token_cov=1.00 num_cov=0.75
+  flags: SIGNATURE_PHONE_NEAR_RECTOR, EDS_STAMP_IN_TEXT, FLAT_LIST_TABLE_ROWS=23
+  missing_pdf_tokens: создавшим
+  signature_tail:
+    | ЗАЯВЛЕНИЕ
+    | Прошу рассмотреть вопрос о предоставлении мне материальной помощи в связи с ________________________________________________________________
+    | Банковские реквизиты прилагаются. «__» ________20__ г.
+    | ________________ / _________________/ (подпись) (ФИО)
+    | Настоящее заявление и документы ______________________________ приняты. (ФИО заявителя)
+    | ________________ / _________________/ (подпись) (ФИО ответственного лица)
+    | ## Действительный документ ref=962ab883038b6c5511eedfb473b95e71
+    | ## Распечатано в программе СЭД РУДН DGU_RUDN 03.04.2024
+
+## doc_id=16 [roma_docling_pdf_v1] WARN — О_введении_Положения_об_общественной_сертификации_обучающихся_РУДН.md
+  pages=15 pdf_body=23344 md_chars=24760 imgs=3 tables~66 token_cov=1.00 num_cov=0.75
+  flags: SIGNATURE_PHONE_NEAR_RECTOR, FLAT_LIST_TABLE_ROWS=10
+  signature_tail:
+    | 3. Пересчет индекса ИДОД обучающегося ПРОИЗВОДИЛСЯ / ПРОИЗВОДИЛСЯ
+    | 4. ПО РЕЗУЛЬТАТАМ ПРОВЕРКИ,
+    | ## СУММАРНЫЙ ИНДЕКС ИДОД ЗА
+    | ## БАЛЛ(А/ОВ)
+    | Электронная копия документа
+    | ## ВЕСЬ ПЕРИОД ОБУЧЕНИЯ
+    | ## СОСТАВЛЯЕТ
+    | Электронная копия документа
+
+## doc_id=17 [roma_docling_pdf_v1] WARN — Об утверждении новой редакции положения о Системе грантовой поддержки РУДН (1).md
+  pages=20 pdf_body=46545 md_chars=48105 imgs=20 tables~9 token_cov=1.00 num_cov=1.00
+  flags: EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR
+  missing_pdf_tokens: аналитическую, аспирантов7, политики1, федерации2
+  signature_tail:
+    | ## в составе научных консорциумов
+    | 4.5.1. Целью конкурса является развитие многостороннего научнотехнического взаимодействия РУДН в составе консорциумов с ведущими российскими
+    | 4.5.2. В конкурсе могут принимать участие проекты научных консорциумов РУДН, включающие в свой состав, помимо коллектива от РУДН, не менее д
+    | 4.5.3. Срок реализации проекта составляет от 2 лет и определяются КД.
+    | 4.5.4. Размеры и условия финансирования проектов определяются КД.
+    | 4.5.5. Конкурс переведен в статус «архивный», в настоящее время не проводится.
+    | ## Действительный документ ref=9ab600155dec4f7a11f16b0aba428bfa
+    | ## Распечатано в программе СЭД РУДН DGU3_RUDN 02.07.2026
+
+## doc_id=18 [roma_docling_pdf_v1] WARN — Об_утверждении_Положений_о_соцподдержке_и_переходе_обучающихся_РУДН.md
+  pages=16 pdf_body=30396 md_chars=30930 imgs=1 tables~19 token_cov=1.00 num_cov=1.00
+  flags: EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR
+  missing_pdf_tokens: информационно, телекоммуникационных
+  signature_tail:
+    | Дата_____________ подпись_________ (____________) ФИО Согласовано:
+    | 1. Секретарь дисциплинарной комиссии ___________________________ наличие/отсутствие взыскания
+    | 2. Руководитель ОУП ______________________________ наличие/отсутствие академической задолженности
+    | 3. МФЦ Коммерческого управления ___________________________ наличие/отсутствие задолженности по оплате обучения
+    | ## Электронная версия документа
+    | Приложение № 2 к Положению о порядке и случаях перехода лиц, обучающихся по образовательным программам высшего образования с платного обучен
+    | ## Электронная версия документа
+    | ## Электронная версия документа
+
+## doc_id=19 [roma_docling_pdf_v1] WARN — Приказ Ректора «Об утверждении Положения о стипендии имени Владимира Францевича Станиса (Стипендия В.Ф. Станиса)».md
+  pages=3 pdf_body=0 md_chars=4643 imgs=3 tables~0 token_cov=n/a(scan) num_cov=n/a
+  flags: SIGNATURE_PHONE_NEAR_RECTOR, KNOWN_TYPO_FRACEVICHA, SCAN_SOURCE_MANUAL_OR_OCR
+  signature_tail:
+    | д) быть выдвинутым от имени студенческого коллектива учебной группы, студенческого комитета факультета (института/академии).
+    | 3. Стипендия назначается с 01 сентября текущего года по 30 июня будущего года.
+    | 4. Размер стипендии устанавливается решением Ученого совета Университета ежегодно.
+    | 5. Решение о назначении стипендии В.Ф. Станиса принимает Ученый совет Университета из числа кандидатов, рекомендуемых Учеными советами факул
+    | 6. Стипендиатам вручается именной сертификат стипендиата В.Ф. Станиса на Слете отличников учебы Университета.
+    | 7. Сообщение о назначении стипендии В.Ф. Станиса размещается на официальном сайте РУДН и официальных страницах РУДН в социальных сетях.
+    | 8. Стипендия может быть отменена в случае нарушения условий, изложенных в п.2 настоящего положения, при отчислении студента, при переводе ст
+    | 9. Настоящее Положение вступает в силу с момента его утверждения Ученым советом Университета и действует до внесения в него изменений или пр
+
+## doc_id=20 [roma_docling_pdf_v1] NOTE — Регламент назначения социальной стипендии.md
+  pages=6 pdf_body=0 md_chars=11912 imgs=1 tables~0 token_cov=n/a(scan) num_cov=n/a
+  flags: SCAN_SOURCE_MANUAL_OR_OCR
+
+## doc_id=21 [roma_docling_pdf_v1] WARN — № 541_ot_29.09.2022.md
+  pages=2 pdf_body=3058 md_chars=3273 imgs=2 tables~0 token_cov=1.00 num_cov=1.00
+  flags: EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR, EDS_STAMP_IN_TEXT
+  signature_tail:
+    | ## Электронная версия документа
+    | социального, культурного, правозащитного, общественно полезного характера, организуемой РУДН или с ее участием, подтверждаемое документально
+    | б) систематическое участие студента в течение года, предшествующего назначению повышенной государственной академической стипендии, в деятель
+    | в) систематическое участие студента в течение года, предшествующего назначению повышенной государственной академической стипендии, в проведе
+    | 2. Контроль за исполнением приказа возложить на проректора по работе со студентами С.В. Базавлука.
+    | И.о. Ректора Ю.Н. Эбзеева
+    | И.В. Ефремова доб. 11-89
+    | ## Электронная версия документа
+
+## doc_id=22 [roma_docling_pdf_v1] WARN — №344_от_18_06_2025_Об_утверждении_Положения_О_А_Ястребов.md
+  pages=17 pdf_body=30056 md_chars=30359 imgs=2 tables~35 token_cov=1.00 num_cov=1.00
+  flags: EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR
+  signature_tail:
+    | Председатель конкурсной комиссии
+    | (подпись)
+    | Секретарь конкурсной комиссии (подпись)
+    | Приложение №1 к проколу заседания конкурсной комиссии
+    | Приложение №3 к Положению о грантах, предоставляемых на конкурсной основе для поступающих на обучение по образовательным программам высшего 
+    | ## Учет индивидуальных достижений поступающих по программам
+    | ## магистратуры*
+    | * Учитываются индивидуальные достижения, полученные не ранее 2-х лет с даты подачи заявки на участие в конкурсе
+
+=== SUMMARY BY SEVERITY ===
+{'warn': 17, 'note': 4, 'critical': 1}
+
+=== CRITICAL / WARN ===
+  [warn] doc_id=1 1356_about_support_measures.md
+         IMAGE_PH=1, EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR, FLAT_UNIT_HEADERS=10, FLAT_LIST_TABLE_ROWS=96, TRUNCATED_POINT2_IN_SOURCE_OR_MD
+  [warn] doc_id=5 No1051-r_ot_03.07.2024_O_merax_podderghki_obuchayuschixsya_RUDN,_prinimayuschix_(prinimavshix)_uchastie_v._O.A._YAstrebov.md
+         MANY_IMAGE_PH=4, EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR, EDS_STAMP_IN_TEXT
+  [warn] doc_id=6 No1424-r_ot_12.08.2026_Ob_ustanovlenii_normativo.md
+         IMAGE_PH=1, EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR, EDS_STAMP_IN_TEXT
+  [warn] doc_id=7 No1843-r_ot_21.11.2024_O_materialynoi_podderghke_dlya_molodyx_studencheskix_semei_v_RUDN.md
+         MANY_IMAGE_PH=5, EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR, MISSING_FOOTNOTE_HINT
+  [critical] doc_id=8 No352_ot_18.06.2025_O_vvedenii_v_deistvie_izm._YU.N._Ebzeeva.md
+         IMAGE_PH=2, FORMULA_NOT_DECODED, EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR
+  [warn] doc_id=9 No545_ot_24.10.2024_O_vnesenii_izmenenii_i_dopolnenii_v_prikaz_ot_26.03.2024_No_174_O_vvedenii._O.A._YAstrebov_(1).md
+         IMAGE_PH=1, EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR, EDS_STAMP_IN_TEXT
+  [warn] doc_id=10 No595_ot_09.10.2025_O_vvedenii_v_deistvie_izm._D.I._Kutepov.md
+         IMAGE_PH=1, EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR, EDS_STAMP_IN_TEXT, MISSING_SIGNER_NAME
+  [warn] doc_id=11 No749-r_ot_13.05.2024_O_merax_podderghki_obuchayuschixsya,_proghivayuschix_v_raionax,_v_kotoryx_obyyavlen._O.A._YAstrebov.md
+         EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR, EDS_STAMP_IN_TEXT
+  [warn] doc_id=12 No_368_ot_08.06.2022_Pologhenie_o_stipendialynom_obespechenii_i_drugix_formax_materialynoy_podderghki_obuchayuschixsya.md
+         EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR, EDS_STAMP_IN_TEXT, FLAT_LIST_TABLE_ROWS=87
+  [warn] doc_id=13 Pologhenie_o_stipendialynyx_komissiyax_RUDN_888_(1).md
+         SIGNATURE_PHONE_NEAR_RECTOR, EDS_STAMP_IN_TEXT, SCAN_SOURCE_MANUAL_OR_OCR
+  [warn] doc_id=14 О введение в действие Положения о предоставлении скидок и иных формах поддержки обучающихся РУДН в новой редакции.md
+         EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR
+  [warn] doc_id=15 О введении в действие Порядка оказания материальной поддержки обучающимся РУДН.md
+         SIGNATURE_PHONE_NEAR_RECTOR, EDS_STAMP_IN_TEXT, FLAT_LIST_TABLE_ROWS=23
+  [warn] doc_id=16 О_введении_Положения_об_общественной_сертификации_обучающихся_РУДН.md
+         SIGNATURE_PHONE_NEAR_RECTOR, FLAT_LIST_TABLE_ROWS=10
+  [warn] doc_id=17 Об утверждении новой редакции положения о Системе грантовой поддержки РУДН (1).md
+         EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR
+  [warn] doc_id=18 Об_утверждении_Положений_о_соцподдержке_и_переходе_обучающихся_РУДН.md
+         EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR
+  [warn] doc_id=19 Приказ Ректора «Об утверждении Положения о стипендии имени Владимира Францевича Станиса (Стипендия В.Ф. Станиса)».md
+         SIGNATURE_PHONE_NEAR_RECTOR, KNOWN_TYPO_FRACEVICHA, SCAN_SOURCE_MANUAL_OR_OCR
+  [warn] doc_id=21 № 541_ot_29.09.2022.md
+         EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR, EDS_STAMP_IN_TEXT
+  [warn] doc_id=22 №344_от_18_06_2025_Об_утверждении_Положения_О_А_Ястребов.md
+         EMPTY_QUOTE_TITLE, SIGNATURE_PHONE_NEAR_RECTOR
+
+=== ERROR CLASSES (corpus-wide) ===
+- EDS/штампы в тексте шапки; пустой "" вместо номера; телефон у блока Ректор
+- таблицы рвутся / плоские приложения без иерархии факультетов
+- сканы: md есть (ручной/OCR), сверка token_cov с PDF невозможна
+- точечные пропуски (сноски, ФИО подписанта, formula-not-decoded)

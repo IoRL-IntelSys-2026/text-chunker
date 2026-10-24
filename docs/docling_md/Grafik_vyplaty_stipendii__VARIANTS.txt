@@ -1,0 +1,24 @@
+Сравнение прогонов Grafik_vyplaty_stipendii.pdf (один и тот же PDF).
+
+OK:
+- Grafik_vyplaty_stipendii.md
+    baseline, VLM granite_docling scale=2 (первый прогон)
+- Grafik_vyplaty_stipendii__vlm_granite_docling_s2.md
+    то же + комментарий variant
+- Grafik_vyplaty_stipendii__vlm_granite_docling_s3.md
+    VLM granite_docling, images_scale=3 — буквы почти как s2, не лучше
+- Grafik_vyplaty_stipendii__vlm_granite_vision_s2.md
+    VLM granite_vision — огромный мусорный md-table (сотни пустых колонок)
+- Grafik_vyplaty_stipendii__vlm_granite_vision_chart.md
+    granite_vision + do_chart_extraction — то же по сути
+- Grafik_vyplaty_stipendii__ocr_rapid_cyr_s3.md
+    PdfPipeline + RapidOCR lang=cyrillic scale=3 — нормальный русский абзац
+- Grafik_vyplaty_stipendii__ocr_rapid_cyr_s4.md
+    то же scale=4 — текст как у s3
+
+FAIL (см. *.ERROR.txt):
+- got_ocr — transformers attn_implementation
+- deepseek_ocr — нужен remote API (enable_remote_services)
+
+Замечание: даже у лучшего OCR таблица/календарь графика остаётся как <!-- image -->;
+прочитан в основном текстовый блок про выплату до 26 числа.
